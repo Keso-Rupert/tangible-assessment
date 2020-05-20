@@ -1,5 +1,6 @@
 package com.abnamro.assessment.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -20,7 +21,7 @@ public class Person {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
 
     @NotNull
     @Size(min = 2)
@@ -29,6 +30,7 @@ public class Person {
     
     @NotNull
     @BirthdateConstraint
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate birthDate;
 
     public Person() {}
@@ -54,4 +56,11 @@ public class Person {
         this.name = name;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
