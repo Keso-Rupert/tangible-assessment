@@ -16,6 +16,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <junit-jupiter.version>5.1.0</junit-jupiter.version>
         <junit.version>4.12</junit.version>
+        <springboot.version>2.3.0.RELEASE</springboot.version>
     </properties>
 
     <dependencies>
@@ -27,9 +28,19 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>${springboot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>${springboot.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.4.197</version>
+            <version>1.4.200</version>
         </dependency>
 
         <dependency>

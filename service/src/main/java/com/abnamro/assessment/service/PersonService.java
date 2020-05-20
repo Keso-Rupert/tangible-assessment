@@ -1,21 +1,31 @@
 package com.abnamro.assessment.service;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.abnamro.assessment.model.Person;
+import com.abnamro.assessment.repository.PersonRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * PersonService
  */
+@Service
 public class PersonService {
 
-    public void createPerson(Person p) {
+    @Autowired
+    PersonRepository personRepository;
 
+    public void createPerson(Person person) {
+        personRepository.save(person);
     }
 
-    public List listFilteredPersons() {
-        return Collections.EMPTY_LIST;
+    public List<Person> listFilteredPersons() {
+        List<Person> personList = new ArrayList<Person>();
+        personRepository.findAll().forEach(person -> personList.add(person));
+        return personList;
     }
     
 }
